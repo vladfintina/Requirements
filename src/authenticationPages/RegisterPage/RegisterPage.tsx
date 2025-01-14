@@ -22,16 +22,13 @@ export const RegisterPage = observer(() => {
     const {
         registerData,
         errorData,
-        setFirstNameValue,
-        setLastNameValue,
+        setUsernameValue,
+        setUserTypeValue,
         setEmailValue,
         setPasswordValue,
-        setConfirmedPasswordValue,
-        setFirstNameIsTouched,
-        setLastNameIsTouched,
+        setUsernameIsTouched,
         setEmailIsTouched,
         setPasswordIsTouched,
-        setConfirmedPasswordIsTouched,
         createUser,
         reset
     } = useContext(RegisterPageContext);
@@ -74,34 +71,31 @@ export const RegisterPage = observer(() => {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
                         <Grid container spacing={3}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     autoComplete="given-name"
-                                    name="firstName"
+                                    name="username"
                                     required
                                     fullWidth
-                                    id="firstName"
-                                    label="First Name"
+                                    id="username"
+                                    label="Username"
                                     autoFocus
-                                    onChange={setFirstNameValue}
-                                    onFocus={setFirstNameIsTouched}
-                                    error={errorData.firstNameError.isTouched && !!errorData.firstNameError.message}
-                                    helperText={errorData.firstNameError.isTouched ? errorData.firstNameError.message : ""}
+                                    onChange={setUsernameValue}
+                                    onFocus={setUsernameIsTouched}
+                                    error={errorData.usernameError.isTouched && !!errorData.usernameError.message}
+                                    helperText={errorData.usernameError.isTouched ? errorData.usernameError.message : ""}
                                 />
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
+                                    autoComplete="given-type"
+                                    name="userType"
                                     required
                                     fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="family-name"
-                                    onChange={setLastNameValue}
-                                    onFocus={setLastNameIsTouched}
-                                    error={errorData.lastNameError.isTouched && !!errorData.lastNameError.message}
-                                    helperText={errorData.lastNameError.isTouched ? errorData.lastNameError.message : ""}
-
+                                    id="userType"
+                                    label="UserType"
+                                    autoFocus
+                                    onChange={setUserTypeValue}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -131,21 +125,6 @@ export const RegisterPage = observer(() => {
                                     onFocus={setPasswordIsTouched}
                                     error={errorData.passwordError.isTouched && !!errorData.passwordError.message}
                                     helperText={errorData.passwordError.isTouched ? errorData.passwordError.message : ""}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="confirmPassword"
-                                    label="Confirm Password"
-                                    type="password"
-                                    id="confirmPassword"
-                                    autoComplete="new-password"
-                                    onChange={setConfirmedPasswordValue}
-                                    onFocus={setConfirmedPasswordIsTouched}
-                                    error={errorData.confirmedPasswordError.isTouched && !!errorData.confirmedPasswordError.message}
-                                    helperText={errorData.confirmedPasswordError.isTouched ? errorData.confirmedPasswordError.message : ""}
                                 />
                             </Grid>
                         </Grid>

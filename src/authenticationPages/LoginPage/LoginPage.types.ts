@@ -1,10 +1,10 @@
 export interface LoginType {
-    email: string;
+    username: string;
     password: string;
 }
 
 export const EMPTY_LOGIN: LoginType = {
-    email: "",
+    username: "",
     password: ""
 };
 
@@ -14,12 +14,12 @@ export interface ErrorDetails {
 }
 
 export interface LoginErrorType {
-    emailError: ErrorDetails;
+    usernameError: ErrorDetails;
     passwordError: ErrorDetails;
 }
 
 export const EMPTY_LOGIN_ERROR: LoginErrorType = {
-    emailError: {
+    usernameError: {
         message: "",
         isTouched: false
     },
@@ -31,16 +31,11 @@ export const EMPTY_LOGIN_ERROR: LoginErrorType = {
 
 export interface UserType {
     id?: number;
+    username: string;
     firstName: string;
     lastName: string;
     email: string;
-    roleId: RoleEnum;
+    userType: string;
     token: string;
     refreshToken: string;
-}
-
-export enum RoleEnum {
-    CLIENT = 1,
-    MEDIC = 2,
-    ADMIN = 3
 }

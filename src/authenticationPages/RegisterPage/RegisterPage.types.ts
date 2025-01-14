@@ -1,37 +1,34 @@
 import { ErrorDetails } from "../LoginPage/LoginPage.types";
 
 export interface RegisterUserType {
-    firstName: string;
-    lastName: string;
+    username: string;
+    userType: string;
     email: string;
     password: string;
-    confirmedPassword: string;
 }
 
-export const EMPTY_REGISTER_USER: RegisterUserType = {
-    firstName: "",
-    lastName: "",
+export const EMPTY_REGISTER_USER: { password: string; username: string; userType: string; email: string } = {
+    username: "",
+    userType: "",
     email: "",
     password: "",
-    confirmedPassword: ""
 };
 
 export interface RegisterErrorType {
-    firstNameError: ErrorDetails;
-    lastNameError: ErrorDetails;
+    usernameError: ErrorDetails;
+    userTypeError: ErrorDetails;
     emailError: ErrorDetails;
     passwordError: ErrorDetails;
-    confirmedPasswordError: ErrorDetails;
 }
 
 export const EMPTY_REGISTER_ERROR: RegisterErrorType = {
-    firstNameError: {
+    usernameError: {
         message: "",
         isTouched: false
     },
-    lastNameError: {
-        message: "",
-        isTouched: false
+    userTypeError:{
+        message:"",
+        isTouched:false
     },
     emailError: {
         message: "",
@@ -41,8 +38,4 @@ export const EMPTY_REGISTER_ERROR: RegisterErrorType = {
         message: "",
         isTouched: false
     },
-    confirmedPasswordError: {
-        message: "",
-        isTouched: false
-    }
 };

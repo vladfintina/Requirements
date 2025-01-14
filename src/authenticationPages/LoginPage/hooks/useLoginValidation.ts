@@ -4,19 +4,17 @@ import { emailValidation, passwordValidation } from "../../../shared/ValidationI
 
 export const useLoginValidation = (fetchUser: () => Promise<void>) => {
     const {
-        loginData: { email, password },
+        loginData: { username, password },
         errorData,
-        setEmailError,
         setPasswordError,
     } = useContext(LoginPageContext);
 
-    setEmailError(emailValidation(email));
     setPasswordError(passwordValidation(password));
 
     const validateError = async () => {
-        console.log("Validate Error email:", errorData.emailError.message)
-        console.log("Email:", email);
-        if (errorData.emailError.message === "" && errorData.passwordError.message === "") {
+        console.log("Validate Error username:", errorData.usernameError.message)
+        console.log("Email:", username);
+        if (errorData.usernameError.message === "" && errorData.passwordError.message === "") {
             await fetchUser();
         }
     }

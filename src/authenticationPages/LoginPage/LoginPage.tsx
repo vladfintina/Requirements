@@ -25,10 +25,10 @@ export const LoginPage = observer( () =>
         const {
             loginData,
             errorData,
-            setEmailValue,
+            setUsernameValue,
             setPasswordValue,
             fetchUser,
-            setEmailIsTouched,
+            setUsernameIsTouched,
             setPasswordIsTouched,
             reset
         } = useContext(LoginPageContext);
@@ -88,15 +88,15 @@ export const LoginPage = observer( () =>
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    value = {loginData.email}
-                                    onChange={setEmailValue}
-                                    onFocus={setEmailIsTouched}
-                                    error={errorData.emailError.isTouched && !!errorData.emailError.message}
-                                    helperText={errorData.emailError.isTouched ? errorData.emailError.message : ""}
+                                    id="username"
+                                    label="Username"
+                                    name="username"
+                                    autoComplete="username"
+                                    value = {loginData.username}
+                                    onChange={setUsernameValue}
+                                    onFocus={setUsernameIsTouched}
+                                    error={errorData.usernameError.isTouched && !!errorData.usernameError.message}
+                                    helperText={errorData.usernameError.isTouched ? errorData.usernameError.message : ""}
                                 />
                                 <TextField
                                     margin="normal"
