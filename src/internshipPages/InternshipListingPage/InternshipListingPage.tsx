@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getInternships } from './internship.service';
-import { Internship } from './internship.model';
+import { getInternships } from './InternshipListingPage.service.ts';
+import { Internship } from './InternshipListingPage.types.ts';
 
 const InternshipListingPage: React.FC = () => {
     const [internships, setInternships] = useState<Internship[]>([]);
